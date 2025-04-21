@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scraper Control Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+  <!-- DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+</head>
+<body data-theme="dark" class="font-sans">
+
+  <div class="drawer drawer-mobile h-screen">
+    <input id="sidebar-toggle" type="checkbox" class="drawer-toggle" />
+
+    <!-- MAIN CONTENT -->
+    <div class="drawer-content flex flex-col p-6">
+      <label for="sidebar-toggle" class="btn btn-primary drawer-button lg:hidden mb-4">☰ Menu</label>
+
+      <div class="card bg-base-200 p-6 shadow-xl">
+        <h1 class="text-4xl font-extrabold text-center mb-6">🔍 Scraper Control Panel</h1>
+
+        <div class="space-y-4">
+          <button onclick="getValueA()" class="btn btn-primary w-full">
+            🔹 Get Value A
+          </button>
+          <button onclick="getValueB()" class="btn btn-success w-full">
+            🔸 Get Value B
+          </button>
+          <button onclick="postValueC()" class="btn btn-secondary w-full">
+            📨 Post Value C
+          </button>
+        </div>
+
+        <div id="output" class="mt-6 text-center text-sm opacity-70">
+          Awaiting commands...
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR NAV -->
+    <div class="drawer-side">
+      <label for="sidebar-toggle" class="drawer-overlay"></label>
+      <aside class="w-64 bg-base-300 p-6">
+        <h2 class="text-2xl font-bold mb-6">⚙️ Menu</h2>
+        <ul class="menu space-y-2">
+          <li><a class="btn btn-ghost">Dashboard</a></li>
+          <li><a class="btn btn-ghost">Logs</a></li>
+          <li><a class="btn btn-ghost">Settings</a></li>
+          <li><a class="btn btn-ghost">Theme</a></li>
+        </ul>
+        <div class="mt-6">
+          <label class="label">Theme</label>
+          <select class="select select-bordered w-full" onchange="changeTheme(this.value)">
+            <option disabled selected>Pick one</option>
+            <option value="light">☀️ Light</option>
+            <option value="dark">🌙 Dark</option>
+            <option value="cyberpunk">🧬 Cyberpunk</option>
+            <option value="luxury">👑 Luxury</option>
+            <option value="synthwave">🌈 Synthwave</option>
+            <option value="dracula">🧛 Dracula</option>
+          </select>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
