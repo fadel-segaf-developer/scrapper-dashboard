@@ -10,6 +10,8 @@ import webview
 import asyncio
 import uvicorn
 from scraper import scrape_a, scrape_b, post_c
+import webview.platforms.edgechromium as edge
+
 
 app = FastAPI()
 @app.get("/")
@@ -85,5 +87,5 @@ async def do_post():
 
 if __name__ == '__main__':
     Thread(target=start_fastapi, daemon=True).start()
-    webview.create_window("Scraper Dashboard", "http://127.0.0.1:5000", width=1280, height=720)
-    webview.start()
+    webview.create_window("Scraper Dashboard", "http://127.0.0.1:5000", frameless=True, width=1280, height=720, min_size=(1280, 720))
+    webview.start(gui='edgechromium', debug=True)
